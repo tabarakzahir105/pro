@@ -1,0 +1,479 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff4e6; /* Soft pastel background */
+    color: #3c3c3c; /* Dark gray text for better readability */
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffb3b3; /* Soft pink background */
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+nav .logo img {
+    width: 40px;
+    height: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+    transition: transform 0.3s ease;
+}
+
+nav ul li:hover {
+    transform: scale(1.1);
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #3c3c3c;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff6f61; /* A sweet color for hovering over links */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    background-color: #f8e1e1; /* Light pink */
+    overflow: hidden;
+}
+
+.hero .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: slide 15s infinite ease-in-out;
+}
+
+.hero .slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 2s ease-out;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.explore-btn {
+    background-color: #ff6f61;
+    padding: 15px 30px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.explore-btn:hover {
+    background-color: #e55d4b;
+    transform: scale(1.1);
+}
+
+/* Product Grid in Featuring Page */
+.featuring {
+    padding: 50px 20px;
+    background-color: #fff4e6;
+    text-align: center;
+    animation: fadeIn 2s ease-out;
+}
+
+.featuring h2 {
+    font-size: 2.5rem;
+    color: #ff6f61;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;  /* Ensure content aligns properly */
+    justify-content: space-between;  /* Adjusts spacing between elements */
+    padding: 20px;
+    height: 100%;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    width: 100%;
+    height: auto;  /* Adjust height automatically to maintain aspect ratio */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product:hover img {
+    transform: scale(1.05);
+}
+
+.product h3 {
+    margin: 15px 0;
+    color: #333;
+}
+
+.product p {
+    color: #ff6f61;
+    font-weight: bold;
+}
+
+.stars {
+    color: gold;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.order-btn {
+    background-color: #ff6f61;
+    padding: 8px 20px;  /* Slightly increased padding for better visibility */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    width: 100%;  /* Ensure the button takes the full width of the product card */
+    box-sizing: border-box;  /* Prevents button from overflowing the product card */
+    margin-top: 15px;  /* Adds some space above the button */
+}
+
+.order-btn:hover {
+    transform: scale(1.1);
+    background-color: #e55d4b;
+}
+
+/* Modal (Order Form) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-out;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+input, select, textarea {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button[type="submit"] {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #e55d4b;
+}
+
+/* About Section */
+.about {
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 60px; /* Added margin to avoid blending with navbar */
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #e63946;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 20px 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.owners, .staff {
+    margin: 40px 0;
+}
+
+.owners h3, .staff h3 {
+    font-size: 2rem;
+    color: #e63946;
+    margin-bottom: 20px;
+}
+
+.owners p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.staff {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.staff-member {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.staff-member img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.staff-member h4 {
+    font-size: 1.5rem;
+    color: #e63946;
+    margin-bottom: 10px;
+}
+
+.staff-member p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Customer Reviews Section */
+.rev {
+    display: flex;
+    flex-direction: column; /* Stack the heading and review container vertically */
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px; /* Reduced space below the reviews section */
+}
+
+.rev h3 {
+    font-size: 2rem;
+    color: #e63946;
+    margin: 10px 0 10px; /* Reduced space above and below the heading */
+    text-align: center;
+}
+
+/* Reviews Section */
+.reviews-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 700px;
+    margin: 10px auto; /* Reduced space below the review container */
+    padding: 20px;
+}
+
+.reviews-wrapper {
+    overflow: hidden;
+    width: 100%; /* Ensures full width for consistent design */
+    border-radius: 10px;
+    background-color: #ffe6cc; /* Matches the review box background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Uniform shape from both ends */
+}
+
+.reviews {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.review {
+    flex: 0 0 100%; /* Each review takes full width of the wrapper */
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.review p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.6; /* Improved readability for longer reviews */
+}
+
+.review span {
+    font-size: 14px;
+    font-style: italic;
+    color: #555;
+}
+
+/* Rating Stars */
+.rating {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.rating i {
+    font-size: 18px;
+    color: #ffcc00; /* Gold color for stars */
+}
+
+/* Arrow Buttons */
+.arrow {
+    background-color: #ffbb99;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s;
+    z-index: 1;
+    position: absolute;
+    top: 50%; /* Center vertically along the review container */
+    transform: translateY(-50%);
+}
+
+.arrow:hover {
+    background-color: #ff5733;
+    color: #fff;
+}
+
+.left-arrow {
+    left: -35px; /* Positioned slightly outside the reviews container */
+}
+
+.right-arrow {
+    right: -35px; /* Positioned slightly outside the reviews container */
+}
+
+/* Footer Section */
+footer {
+    background-color: #ffb3b3;;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .socials {
+    margin-top: 10px;
+}
+
+footer .social-link {
+    color: #fff;
+    margin: 0 15px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+footer .social-link:hover {
+    color: #56524b; /* Change color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .staff-member {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .staff {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .reviews {
+        padding: 20px 10px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
